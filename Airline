@@ -84,4 +84,17 @@ public class Airline {
 		}
 
 	}
+	@Override
+	public void getRouteDestion() {
+		// TODO Auto-generated method stub
+		
+		int choose=sc.nextInt(); if (choose==1){
+			System.out.println("Its for NewYork");
+			
+		}
+		else {
+			System.out.println("Its for London");
+		}
+		
+	}
 }
