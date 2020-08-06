@@ -2,10 +2,11 @@ package AirlineReservation;
 
 import java.util.Scanner;
 
-public class AirlineReservation1 {
+public class AirlineReservation1 implements Destination{
 
+	private static final int Integer = 0;
 	boolean[] flightseats = new boolean[11];
-	Scanner input = new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
 
 	public void start() {
 		while (true) {
@@ -76,15 +77,84 @@ public class AirlineReservation1 {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		// TODO Auto-generated method stub
 		AirlineReservation1 a= new AirlineReservation1();
+		System.out.println("Welcome to Airline");
+		System.out.println("It is Sunny today!");
+		System.out.println("Choose destionation: ");
+		System.out.println("Press 1 for London: ");
+		System.out.println("Press 2 for India: ");
+		System.out.println("Press 3 for Usa: ");
+		System.out.println("Press 4 for Dubai: ");
+		int ch=input.nextInt();
+		switch (ch) {
+		
+	          //comparing value of variable against each case
+	        case 1:
+	          System.out.println("Welcome to London!!!");
+	          System.out.println("++++++++++++++++++++++++++++++++++");
+	          System.out.println("wait fetching...results");
+
+	          break;
+	        case 2:
+	          System.out.println("IWelcome to India!!!");
+	          System.out.println("++++++++++++++++++++++++++++++++++");
+	          System.out.println("wait fetching...results");
+
+	          break;
+	        case 3:
+	          System.out.println("Welcome to Usa!!!");
+	          System.out.println("++++++++++++++++++++++++++++++++++");
+	          System.out.println("wait fetching...results");
+
+	          break;
+	        case 4:
+		          System.out.println("Welcome to Duba!!!");
+		          System.out.println("++++++++++++++++++++++++++++++++++");
+		          System.out.println("wait fetching...results");
+		          break;
+	        //optional
+	        default:
+	          System.out.println("Invalid Input! Please relaunch the application");
+	          System.exit(010);
+	    
+		
+		}
+		Thread.sleep(5000);
+		a.destionation();
 		a.start();
 		a.bookSeat();
 		a.firstClassBooking();
 		a.economyClassBooking();
 
+	}
+
+	@Override
+	public void destionation() {
+		// TODO Auto-generated method stub
+		int choose =input.nextInt();
+		if (choose==1){
+			System.out.println("Your destionation is London");
+			
+		}
+		if (choose==2){
+			System.out.println("Your destionation is India");
+			
+		}
+		
+		if (choose==3){
+			System.out.println("Your destionation is Dubai");
+			
+		}
+		if (choose==4){
+			System.out.println("Your destionation is Usa");
+			
+		}
+		
+		
+		
 	}
 
 }
