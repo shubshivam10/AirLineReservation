@@ -16,6 +16,7 @@ public class Airline {
 	public void makeReservation() {
 		System.out.println("Please type 1 for the First class or 2 for the Economy:");
 		int section = sc.nextInt();
+		
 		if (section == 1) {
 			firstClassSeat();
 		} else {
@@ -77,6 +78,7 @@ public class Airline {
 		Airline a = new Airline();
 		System.out.println("Welcome to Airline");
 		a.makeReservation();
+		a.getRouteDestion()
 		if (sc.nextInt() == 1) {
 			a.firstClassSeat();
 		} else {
