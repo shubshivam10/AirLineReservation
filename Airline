@@ -1,102 +1,90 @@
-package CodingTest;
+package AirlineReservation;
 
 import java.util.Scanner;
 
-public class Airline {
+public class AirlineReservation1 {
 
-	boolean[] seating = new boolean[11];
-	static Scanner sc = new Scanner(System.in);
+	boolean[] flightseats = new boolean[11];
+	Scanner input = new Scanner(System.in);
 
 	public void start() {
 		while (true) {
-			makeReservation();
+			bookSeat();
 		}
 	}
 
-	public void makeReservation() {
-		System.out.println("Please type 1 for the First class or 2 for the Economy:");
-		int section = sc.nextInt();
-		
-		if (section == 1) {
-			firstClassSeat();
+	public void bookSeat() {
+		System.out.println("Choose Your preference : type '1' for First Class or '2' for Economy Class:");
+		int pessangerClass = input.nextInt();
+		if (pessangerClass == 1) {
+			firstClassBooking();
 		} else {
-			economySeat();
+			economyClassBooking();
 		}
 	}
 
-	public void firstClassSeat() {
-		for (int count = 1; count <= 5; count++) {
-			if (seating[count] == false) {
-				seating[count] = true;
-				System.out.printf("First Class. Seat# %d\n", count);
+	public void firstClassBooking() {
+		for (int cnt = 1; cnt <= 5; cnt++) {
+			if (flightseats[cnt] == false) {
+				flightseats[cnt] = true;
+				System.out.printf("First Class Seat Booking: Seat# %d\n", cnt);
 				break;
-			} else if (seating[5] == true) {
-				if (seating[10] == true) {
-					System.out.println("Sorry, Flight fully booked. Next flight is in 3 hours.");
+			} else if (flightseats[5] == true) {
+				if (flightseats[10] == true) {
+					System.out.println("Apologies!! All seats are booked. Next flight is scheduled in '3' hours.");
 				} else {
-					System.out.println("First Class is fully booked. Would you like Economy? 1 for Yes 2 for No");
-					int choice = sc.nextInt();
-					if (choice == 1) {
-						economySeat();
+					System.out.println(
+							"Sorry,First Class bookings are over. Would you like to opt for Economy class ? select '1' for Yes and '2' for No");
+					int selection = input.nextInt();
+					if (selection == 1) {
+						economyClassBooking();
 						start();
 					} else {
-						System.out.println("Next flight is in 3 hours.");
+						System.out.println("Next flight is scheduled in '3' hours.");
 						System.exit(0);
+
 					}
 				}
 			}
 		}
 	}
 
-	public void economySeat() {
-		for (int count = 6; count <= 10; count++) {
-			if (seating[count] == false) {
-				seating[count] = true;
-				System.out.printf("Economy. seat#%d\n", count);
+	public void economyClassBooking() {
+		for (int cnt = 6; cnt <= 10; cnt++) {
+			if (flightseats[cnt] == false) {
+				flightseats[cnt] = true;
+				System.out.printf("economy class seat booking :# %d\n", cnt);
 				break;
-			} else if (seating[10] == true) {
-				if (seating[5] == true) {
-					System.out.println("Sorry, flight fully booked. Next flight is in 3 hours.");
+			} else if (flightseats[10] == true) {
+				if (flightseats[5] == true) {
+
+					System.out.println("Apologies!! All seats are booked. Next flight is scheduled in '3' hours.");
 					System.exit(0);
-				}
-			} else {
-				System.out.println("Economy is fully booked. Would you like First Class? 1 for Yes 2 for No");
-				int choice = sc.nextInt();
-				if (choice == 1) {
-					firstClassSeat();
-					start();
 				} else {
-					System.out.println("Next flight is in 3 hours");
-					System.exit(0);
+					System.out.println("Sorry, Economy Class seat bookings are over. Would you like to opt for first Class seat? press '1' for Yes and '2' for No");
+                 int selection=input.nextInt();
+                 if(selection==1) {
+                	 firstClassBooking();
+                	 start();
+                 }
+                 else {
+                	 System.out.println("Next flight is scheduled in 3 hours");
+                	 System.exit(0);
+                 }
 				}
 			}
 		}
 	}
 
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
-		Airline a = new Airline();
-		System.out.println("Welcome to Airline");
-		a.makeReservation();
-		a.getRouteDestion()
-		if (sc.nextInt() == 1) {
-			a.firstClassSeat();
-		} else {
-			a.economySeat();
-		}
+		AirlineReservation1 a= new AirlineReservation1();
+		a.start();
+		a.bookSeat();
+		a.firstClassBooking();
+		a.economyClassBooking();
 
 	}
-	@Override
-	public void getRouteDestion() {
-		// TODO Auto-generated method stub
-		
-		int choose=sc.nextInt(); if (choose==1){
-			System.out.println("Its for NewYork");
-			
-		}
-		else {
-			System.out.println("Its for London");
-		}
-		
-	}
+
 }
