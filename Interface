@@ -1,9 +1,6 @@
-package CodingTest;
+package AirlineReservation;
 
-public interface TimeSchedule {
-	
-	
-	void getRouteDestion();
-	
+public interface Destination {
+	void destionation();
 
 }
