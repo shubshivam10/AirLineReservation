@@ -1,0 +1,9 @@
+package CodingTest;
+
+public interface TimeSchedule {
+	
+	
+	void getRouteDestion();
+	
+
+}
